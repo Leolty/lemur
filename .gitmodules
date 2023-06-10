@@ -1,0 +1,3 @@
+[submodule "baize-chatbot"]
+	path = baize-chatbot
+	url = https://github.com/project-baize/baize-chatbot.git
