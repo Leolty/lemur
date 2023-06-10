@@ -1,0 +1,12 @@
+SYSTEM = "A chat between a curious human and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the human's questions."
+HUMAN = "[Human]:"
+AI = "[AI]:"
+NAME = "Lemur"
+ORGANIZATION = "UC San Diego (UCSD)"
+MAX_LENGTH = 512
+VAL_SET_SIZE = 256
+LEARNING_RATE = 1e-4
+BATCH_SIZE = 64
+MICRO_BATCH_SIZE = 16
+GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
+EPOCHS = 1
