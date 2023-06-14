@@ -1,6 +1,0 @@
-[submodule "baize-chatbot"]
-	path = baize-chatbot
-	url = https://github.com/project-baize/baize-chatbot.git
-[submodule "FastChat"]
-	path = FastChat
-	url = https://github.com/lm-sys/FastChat.git
