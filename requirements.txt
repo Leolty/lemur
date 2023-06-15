@@ -1,0 +1,8 @@
+peft==0.3.0
+torch==2.0.1
+git+https://github.com/huggingface/transformers.git
+gradio
+datasets
+bitsandbytes
+scipy
+sentencepiece
