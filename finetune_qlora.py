@@ -8,7 +8,7 @@ pip install -q -U git+https://github.com/huggingface/peft.git
 
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import torch
 import random
@@ -22,12 +22,11 @@ random.seed(42)
 
 MAX_LENGTH = 512
 VAL_SET_SIZE = 512
-LEARNING_RATE = 2e-4
+LEARNING_RATE = 1e-4
 BATCH_SIZE = 64
-MICRO_BATCH_SIZE = 8
+MICRO_BATCH_SIZE = 4
 GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
 EPOCHS = 1
-SAMPLE_NUM = 15000
 OUTPUT_DIR = "./output/llama_13B"
 BASE_MODEL = "llama-13B"
 
