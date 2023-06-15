@@ -16,13 +16,13 @@ gunzip data/data_all.json.gz
 pip install -r requirements.txt
 ```
 
-3. Run the `finetune.py`.
+3. Run the `finetune.py`, and you can feel free to customize the training arguments.
+
+For example, if you want to fine-tune the model with the learning rate of `1e-4`, and you have larger GPU memory to support larger micro batch size (e.g. 32) and larger batch size (e.g. 128), you can run the following command.
 
 ```bash
-python finetune.py
+python finetune.py --learning_rate 1e-4 --micro_batch_size 32 --batch_size 128
 ```
-
-You can customize the training arguments in [`finetune.py`](finetune.py).
 
 ## Inference
 
@@ -34,10 +34,10 @@ You should download the LLaMA model through applying by filling the form at offc
 
 Noted that this is only the LoRA model, you should merge the LLaMA model and LoRA model to get the final Lemur model.
 
-3. Check the `BASE_MODEL` and `LORA_MODEL` in [`app.py`](app.py) are correct paths to the LLaMA model and LoRA model, and run the `app.py`.
+3. Run the `app.py` with the correct model path as the argument.
 
 ```bash
-python app.py
+python app.py --base_model llama-7B --lora_model lemur-7B
 ```
 
 ## Hardware Requirements
