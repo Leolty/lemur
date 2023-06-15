@@ -6,3 +6,4 @@ datasets
 bitsandbytes
 scipy
 sentencepiece
+argparse

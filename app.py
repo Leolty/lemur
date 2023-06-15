@@ -6,6 +6,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import torch
 import gradio as gr
 import logging
+import argparse
 
 from utils.inference import load_tokenizer_and_model, decode, \
     get_prompt_with_history, is_stop_word_or_prefix
@@ -14,11 +15,19 @@ from utils.gradio import reset_textbox, cancel_outputing, transfer_input, \
     delete_last_conversation, reset_state, convert_to_markdown
 
 
+argparser = argparse.ArgumentParser()
 
 # set variables
 BASE_MODEL = "llama-7B"
 LORA_MODEL = "lemur-7B"
 
+argparser.add_argument("--base_model", type=str, default=BASE_MODEL)
+argparser.add_argument("--lora_model", type=str, default=LORA_MODEL)
+
+args = argparser.parse_args()
+
+BASE_MODEL = args.base_model
+LORA_MODEL = args.lora_model
 
 print("Loading model...")
 
