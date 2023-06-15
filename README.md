@@ -2,8 +2,7 @@
 
 Lemur is a chatbot model based on the [LLaMA](https://arxiv.org/abs/2302.13971v1) model, further fine-tuned using [LoRA](https://arxiv.org/abs/2106.09685) on several openly available datasets.
 
-> **Usage Note**: Lemur is specifically designed and trained for the exclusive purpose of our final project for CSE 256 Statistical Natural Lang Proc - University of California, San Diego. It is not intended for commercial usage or widespread deployment. Testing and exploration are permitted, but we request that you limit your use to this purpose only. Please respect these guidelines to maintain the integrity of our project and its intended use.
-
+> **Usage Note**: Lemur is specifically designed and trained for the **exclusive** purpose of our final project for CSE 256 Statistical Natural Lang Processing at UCSD. It is not intended for **any** commercial usage or widespread deployment. Testing and exploration are permitted, but we request that you limit your use to this purpose only. Please respect these guidelines to maintain the integrity of our project and its intended use.
 
 ![demo_gif](assets/demo_speedup.gif)
 
