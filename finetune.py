@@ -8,15 +8,12 @@ pip install git+https://github.com/huggingface/peft.git@e536616888d51b453ed354a6
 
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import torch
-import glob
-import json
 import sys
 import random
 import transformers
-from tqdm import tqdm
 from transformers import LlamaForCausalLM, LlamaTokenizer
 from peft import prepare_model_for_int8_training, LoraConfig, get_peft_model, get_peft_model_state_dict
 from utils.train import print_trainable_parameters, generate_and_tokenize_prompt
@@ -31,13 +28,13 @@ BATCH_SIZE = 64
 MICRO_BATCH_SIZE = 8
 GRADIENT_ACCUMULATION_STEPS = BATCH_SIZE // MICRO_BATCH_SIZE
 EPOCHS = 1
-SAMPLE_NUM = 15000
 OUTPUT_DIR = "./output/llama_7B"
 BASE_MODEL = "llama-7B"
 
 tokenizer = LlamaTokenizer.from_pretrained(BASE_MODEL, add_eos_token=True)
 tokenizer.pad_token = tokenizer.eos_token   
 tokenizer.padding_side = "left"
+
 
 # Load Model
 device_map = "auto"
@@ -71,43 +68,6 @@ model = get_peft_model(model, config)
     
 print_trainable_parameters(model)
 
-# load all the data (.jsonl) under ./data folder
-
-data_part_1, data_part_2 = [], []
-for file in glob.glob("./data/*.jsonl"):
-    sub_data = []
-    with open(file, "r") as f:
-        for line in f:
-            sub_data.append(json.loads(line))
-        
-        if len(sub_data) > SAMPLE_NUM:
-            random.shuffle(sub_data)    
-            sub_data_1, sub_data_2 = sub_data[:SAMPLE_NUM], sub_data[SAMPLE_NUM:SAMPLE_NUM*2]
-        else:
-            sub_data_1, sub_data_2 = sub_data, sub_data
-    
-    data_part_1.extend(sub_data_1)
-    data_part_2.extend(sub_data_2)
-    
-
-# shuffle the data
-random.shuffle(data_part_1)
-random.shuffle(data_part_2)
-
-# combine the data
-all_data = data_part_1 + data_part_2
-
-# re-index the data
-for i, d in tqdm(enumerate(data_part_1), total=len(data_part_1)):
-    d["idx"] = i
-
-for i, d in tqdm(enumerate(data_part_2), total=len(data_part_2)):
-    d["idx"] = i + len(data_part_1)
-
-json.dump(data_part_1, open("./data/data_1.json", "w"))
-json.dump(data_part_2, open("./data/data_2.json", "w"))
-json.dump(all_data, open("./data/data_all.json", "w"))
-
 # load all the data with huggingface dataset
 from datasets import load_dataset
 
@@ -140,8 +100,7 @@ trainer = transformers.Trainer(
         save_steps=100,
         output_dir=OUTPUT_DIR,
         save_total_limit=100,
-        load_best_model_at_end=True if VAL_SET_SIZE > 0 else False,
-        optim="paged_adamw_8bit"
+        load_best_model_at_end=True if VAL_SET_SIZE > 0 else False
     ),
     data_collator=transformers.DataCollatorForLanguageModeling(tokenizer, mlm=False),
 )
