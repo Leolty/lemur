@@ -2,6 +2,8 @@
 
 Lemur is a chatbot based on [LLaMA](https://arxiv.org/abs/2302.13971v1) fine-tuned using [LoRA](https://arxiv.org/abs/2106.09685) with several collected open-sourced datasets.
 
+![demo_gif](assets/demo.gif)
+
 ## Fine-tuning
 
 1. Unzip the dataset files in `data/` directory.
