@@ -1,7 +1,7 @@
 import os
 import re
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 import torch
 import gradio as gr
@@ -17,7 +17,7 @@ from utils.gradio import reset_textbox, cancel_outputing, transfer_input, \
 
 # set variables
 BASE_MODEL = "llama-7B"
-LORA_MODEL = "output/llama_lora_7B/checkpoint-3700"
+LORA_MODEL = "output/llama_lora_7B"
 
 
 print("Loading model...")
