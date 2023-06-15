@@ -4,7 +4,7 @@ Lemur is a chatbot model based on the [LLaMA](https://arxiv.org/abs/2302.13971v1
 
 > **Note**: Lemur is specifically designed and trained for the **exclusive** purpose of our final project for CSE 256 Statistical Natural Lang Processing at UCSD. It is not intended for **any** commercial usage or widespread deployment. Testing and exploration are permitted, but we request that you limit your use to this purpose only. Please respect these guidelines to maintain the integrity of our project and its intended use. 
 
-> **Special Note**: The usage of [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) data might pose copyright issues, which are currently under dispute. If you are considering the use of this model, we strongly advise you to proceed with caution.
+> **Warning**: The usage of [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) data might pose copyright issues, which are currently under dispute. If you are considering the use of this model, we strongly advise you to proceed with caution.
 
 ![demo_gif](assets/demo_speedup.gif)
 
