@@ -3,7 +3,8 @@
 Lemur is a chatbot model based on the [LLaMA](https://arxiv.org/abs/2302.13971v1) model, further fine-tuned using [LoRA](https://arxiv.org/abs/2106.09685) on several openly available datasets ( [Alpaca-GPT4](https://huggingface.co/datasets/vicgalle/alpaca-gpt4), [Baize](https://github.com/project-baize/baize-chatbot), [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) and [Vicuna-Dummy-Conversation](https://github.com/lm-sys/FastChat/blob/main/data/dummy_conversation.json) )
 
 > **Usage Note**: Lemur is specifically designed and trained for the **exclusive** purpose of our final project for CSE 256 Statistical Natural Lang Processing at UCSD. It is not intended for **any** commercial usage or widespread deployment. Testing and exploration are permitted, but we request that you limit your use to this purpose only. Please respect these guidelines to maintain the integrity of our project and its intended use. 
-> **Special Notice**: The usage of [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) might pose copyright issues, which are currently under dispute. If you are considering the use of this model, we strongly advise you to proceed with caution.
+
+> **Special Notice**: The usage of [ShareGPT](https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered) data might pose copyright issues, which are currently under dispute. If you are considering the use of this model, we strongly advise you to proceed with caution.
 
 ![demo_gif](assets/demo_speedup.gif)
 
