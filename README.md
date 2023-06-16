@@ -8,6 +8,12 @@ Lemur is a chatbot model based on the [LLaMA](https://arxiv.org/abs/2302.13971v1
 
 ![demo_gif](assets/demo_speedup.gif)
 
+## Demo on 🤗 Huggingface
+
+[https://huggingface.co/spaces/tianyang/lemur-7B](https://huggingface.co/spaces/tianyang/lemur-7B)
+
+It is running on a 16GB CPU (free 🤗 Huggingface Spaces), with really slow inferecing speed. (~30s for processing a single question, and ~1s per subsequent token)
+
 ## Fine-tuning Instructions
 
 ### Step 1: Dataset Unpacking
